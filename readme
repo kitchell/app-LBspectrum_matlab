@@ -1,0 +1,3 @@
+This code is excerpted from: https://github.com/alecjacobson/gptoolbox
+
+Run script_example.m to compute the eigenvalues of a mesh sphere5.obj.
