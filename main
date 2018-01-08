@@ -3,4 +3,8 @@
 #PBS -N LBmatlab
 #PBS -V
 
+if [ $ENV == "IUHPC" ]; then
+    module load matlab
+fi
+
 matlab -nodisplay -nosplash -r main
