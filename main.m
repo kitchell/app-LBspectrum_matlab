@@ -1,5 +1,16 @@
 function [out] = main()
 
+switch getenv('ENV')
+    case 'IUHPC'
+        disp('loading paths (HPC)')
+        addpath(genpath('/N/u/brlife/git/jsonlab'))
+    case 'VM'
+        disp('loading paths (VM)')
+        addpath(genpath('/usr/local/jsonlab'))
+end
+
+
+
 config = loadjson('config.json');
 
 
