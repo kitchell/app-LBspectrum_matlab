@@ -4,6 +4,7 @@ switch getenv('ENV')
     case 'IUHPC'
         disp('loading paths (HPC)')
         addpath(genpath('/N/u/brlife/git/jsonlab'))
+        addpath(genpath('/N/u/brlife/git/geom3d'))
     case 'VM'
         disp('loading paths (VM)')
         addpath(genpath('/usr/local/jsonlab'))
@@ -24,6 +25,6 @@ end
 
 
 savejson('', eval_json, 'spectrum.json');
-%savejson('', evecs_json, 'eigenvectors.json');
+savejson('', evecs_json, 'eigenvectors.json');
 
 end
