@@ -13,18 +13,13 @@ end
 
 
 config = loadjson('config.json');
+evecs = loadjson(config.evecs);
 
 
 filelist = dir([config.surfaces '/*.vtk']);
-for file = 1:size(filelist)
+for file = 2:size(filelist)
     sprintf(filelist(file).name)
-    [evecs, evals] = laplace_beltrami_spectrum([config.surfaces '/' filelist(file).name],config.spectrum_size);
-    eval_json.(filelist(file).name(1:end-4)) = evals(:)';
-    evecs_struct.(filelist(file).name(1:end-4)) = evecs;
+    [V,F] = read_vtk([config.surfaces '/' filelist(file).name]);
+    plot_eigenfunction(V', F, evecs.(filelist(file).name(1:end-4)), 2)
 end
-
-
-savejson('', eval_json, 'spectrum.json');
-%savejson('', evecs_json, 'eigenvectors.json');
-save 'eigenvectors.mat' evecs_struct
 end
