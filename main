@@ -8,3 +8,12 @@ if [ $ENV == "IUHPC" ]; then
 fi
 
 matlab -nodisplay -nosplash -r main
+
+if [ -s spectrum.json ] && [ -s eigenvectors.h5 ]
+then
+	echo 0 > finished
+else
+	echo "files missing"
+	echo 1 > finished
+	exit 1
+fi
