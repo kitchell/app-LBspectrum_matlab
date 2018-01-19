@@ -26,5 +26,6 @@ end
 
 savejson('', eval_json, 'spectrum.json');
 %savejson('', evecs_json, 'eigenvectors.json');
-save 'eigenvectors.mat' evecs_struct
+h5write('eigenvectors.h5', '/eigenvectors', evecs_struct)
+%save 'eigenvectors.mat' evecs_struct
 end
