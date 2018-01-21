@@ -5,11 +5,13 @@
 
 rm finished
 
-if [ $ENV == "IUHPC" ]; then
-    module load matlab
-fi
+#if [ $ENV == "IUHPC" ]; then
+#    module load matlab
+#fi
+module load singularity 2> /dev/null
 
-matlab -nodisplay -nosplash -r main
+singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiledmatlab/main
+#matlab -nodisplay -nosplash -r main
 
 #if [ -s spectrum.json ] && [ -s eigenvectors.mat ]
 if [ -s spectrum.json ]

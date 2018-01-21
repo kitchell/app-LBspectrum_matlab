@@ -1,14 +1,14 @@
 function [out] = main()
-
-switch getenv('ENV')
-    case 'IUHPC'
-        disp('loading paths (HPC)')
-        addpath(genpath('/N/u/brlife/git/jsonlab'))
-        addpath(genpath('/N/u/brlife/git/geom3d'))
-    case 'VM'
-        disp('loading paths (VM)')
-        addpath(genpath('/usr/local/jsonlab'))
-end
+% 
+% switch getenv('ENV')
+%     case 'IUHPC'
+%         disp('loading paths (HPC)')
+%         addpath(genpath('/N/u/brlife/git/jsonlab'))
+%         addpath(genpath('/N/u/brlife/git/geom3d'))
+%     case 'VM'
+%         disp('loading paths (VM)')
+%         addpath(genpath('/usr/local/jsonlab'))
+% end
 
 
 
