@@ -13,8 +13,8 @@ module load singularity 2> /dev/null
 singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiledmatlab/main
 #matlab -nodisplay -nosplash -r main
 
-#if [ -s spectrum.json ] && [ -s eigenvectors.mat ]
-if [ -s spectrum.json ]
+if [ -s spectrum.json ] && [ -s eigenvectors.mat ]
+#if [ -s spectrum.json ]
 then
 	echo 0 > finished
 else
