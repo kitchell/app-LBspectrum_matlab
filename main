@@ -3,13 +3,16 @@
 #PBS -N LBmatlab
 #PBS -V
 
+rm finished
+
 if [ $ENV == "IUHPC" ]; then
     module load matlab
 fi
 
 matlab -nodisplay -nosplash -r main
 
-if [ -s spectrum.json ] && [ -s eigenvectors.h5 ]
+#if [ -s spectrum.json ] && [ -s eigenvectors.mat ]
+if [ -s spectrum.json ]
 then
 	echo 0 > finished
 else
