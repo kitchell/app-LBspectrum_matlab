@@ -19,8 +19,9 @@ filelist = dir([config.surfaces '/*.vtk']);
 for file = 1:size(filelist)
     sprintf(filelist(file).name)
     [evecs, evals] = laplace_beltrami_spectrum([config.surfaces '/' filelist(file).name],config.spectrum_size);
-    eval_json.(filelist(file).name(1:end-4)) = evals(:)';
-    evecs_struct.(filelist(file).name(1:end-4)) = evecs;
+    filename = strrep(filelist(file).name(1:end-4),'-', '_');
+    eval_json.(filename) = evals(:)';
+    evecs_struct.(filename) = evecs;
 end
 
 
