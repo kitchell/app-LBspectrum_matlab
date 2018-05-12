@@ -1,3 +1,4 @@
+*.vtk
 *~
 eigenvectors.mat
 surfaces
