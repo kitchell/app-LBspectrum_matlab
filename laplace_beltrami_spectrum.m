@@ -15,6 +15,8 @@ if size(V,2) > k
     evecs = EV;
     error = 0;
 else 
+    evals = [];
+    evecs = [];
     error = 1;
 end
 end
