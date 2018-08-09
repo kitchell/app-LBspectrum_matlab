@@ -1,4 +1,4 @@
-function [out] = main()
+function [] = main()
 % 
 % switch getenv('ENV')
 %     case 'IUHPC'
