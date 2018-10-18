@@ -21,6 +21,7 @@ for file = 1:size(filelist)
     [evecs, evals, error] = laplace_beltrami_spectrum([config.surfaces '/' filelist(file).name],config.spectrum_size);
     if error == 0
         filename = strrep(filelist(file).name(1:end-4),'-', '_');
+        filename = strrep(filename,'.', '_');
         eval_json.(filename) = evals(:)';
         evecs_struct.(filename) = evecs;
     else
