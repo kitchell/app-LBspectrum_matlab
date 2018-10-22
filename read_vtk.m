@@ -31,6 +31,10 @@ str = fgets(fid);
 str = fgets(fid);
 nvert = sscanf(str,'%*s %d %*s', 1);
 
+if nvert == 0
+    error('No vertices');
+end
+
 % read vertices
 [A,cnt] = fscanf(fid,'%f %f %f', 3*nvert);
 if cnt~=3*nvert
