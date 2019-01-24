@@ -1,5 +1,5 @@
 [![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/brain-life/abcd-spec)
-[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.1-blue.svg)](https://doi.org/10.25663/bl.app.1)
+[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.97-blue.svg)](https://doi.org/10.25663/bl.app.97)
 
 # app-LBspectrum_matlab
 This service computes the Laplace Beltrami Spectrum of 3D surfae meshes using Matlab.
