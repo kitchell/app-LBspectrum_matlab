@@ -1,24 +1,10 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=8,vmem=30gb,walltime=4:00:00
+#PBS -l nodes=1:ppn=8,vmem=28gb,walltime=8:00:00
 #PBS -N LBmatlab
-#PBS -V
-
-rm finished
-
-#if [ $ENV == "IUHPC" ]; then
-#    module load matlab
-#fi
-module load singularity 2> /dev/null
-
 singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiledmatlab/main
-#matlab -nodisplay -nosplash -r main
-
-#if [ -s spectrum.json ] && [ -s eigenvectors.mat ]
-if [ -s spectrum.json ]
+if [ ! -f spectrum.json ]
 then
-	echo 0 > finished
-else
-	echo "files missing"
-	echo 1 > finished
-	exit 1
+    echo "spectrum.json is missing"
+    exit 1
 fi
+
