@@ -3,7 +3,7 @@
 #PBS -N LBmatlab
 singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiledmatlab/main
 
-if [ ! -f spectrum.json ]
+if [ ! -f spectrum.json ] && [ ! -f eigenvectors.mat ]
 
 then
     echo "spectrum.json is missing"
