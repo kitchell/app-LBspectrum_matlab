@@ -1,4 +1,4 @@
-function [out] = main()
+function [] = main()
 % 
 % switch getenv('ENV')
 %     case 'IUHPC'
@@ -22,11 +22,13 @@ for file = 1:size(filelist)
     if error == 0
         filename = strrep(filelist(file).name(1:end-4),'-', '_');
         filename = strrep(filename,'.', '_');
-        if filename(1:3) == '3rd'
-            filename = 'Third_Ventricle';
-        end
-        if filename(1:3) == '4th'
-             filename = 'Fourth_Ventricle';
+        if size(filename,2) > 2
+            if filename(1:3) == '3rd'
+                filename = 'Third_Ventricle';
+            end
+            if filename(1:3) == '4th'
+                 filename = 'Fourth_Ventricle';
+            end
         end
         eval_json.(filename) = evals(:)';
         evecs_struct.(filename) = evecs;
