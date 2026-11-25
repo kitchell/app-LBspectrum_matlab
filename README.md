@@ -2,6 +2,49 @@
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.97-blue.svg)](https://doi.org/10.25663/bl.app.97)
 
 # app-LBspectrum_matlab
+
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+> **Computes the Laplace-Beltrami spectrum (eigenvalues and eigenvectors) of each VTK surface mesh in a 3D surfaces dataset with compiled MATLAB code.**
+
+For every .vtk mesh in the input surfaces directory, normalizes the mesh by surface area, builds the cotangent Laplacian and barycentric mass matrix, and solves for the spectrum_size smallest eigenpairs. Eigenvalues go to spectrum.json and, when save_eigenvectors is true, eigenvectors go to eigenvectors.mat. Use it for shape analysis or to reconstruct surfaces from eigenfunctions; meshes with too few vertices for the requested spectrum are skipped.
+
+| | |
+|---|---|
+| 📥 **Inputs** | `neuro/3Dsurfaces` |
+| 📤 **Outputs** | `neuro/laplace_beltrami_spectrum` · `raw` |
+| 🐳 **Container** | `brainlife/mcr:neurodebian1604-r2017a` |
+| ⚙️ **Resources** | 8 CPUs · 28 GB memory · 8 h walltime |
+| 🔗 **Run it** | [doi.org/10.25663/bl.app.96](https://doi.org/10.25663/bl.app.96) |
+
+#### 📥 Inputs
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `0` | `neuro/3Dsurfaces` | yes | Directory of triangle surface meshes in VTK format, one per structure. Only *.vtk files are read; each mesh needs more vertices than spectrum_size. |
+
+#### 📤 Outputs
+
+| Output | Datatype | Description |
+|---|---|---|
+| `0` | `neuro/laplace_beltrami_spectrum` | spectrum.json with the Laplace-Beltrami eigenvalues for each surface, keyed by surface name. |
+| `1` | `raw` | eigenvectors.mat (MATLAB v7.3) with the eigenvectors for each surface, written when save_eigenvectors is true. |
+
+<details>
+<summary><b>⚙️ Parameters</b> (2)</summary>
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `save_eigenvectors` | boolean | `true` | this app saves the eigenvectors |
+| `spectrum_size` | number | `50` | number of eigenvalues |
+
+</details>
+
+📚 **References used by this App:**
+- Kitchell L. Shape Analysis of Human White Matter Tracts: An Examination of Normal Morphological Variability and the Association Between Morphology, Brain Size, and Behavior. Indiana University (2020).
+
+<!-- brainlife-app:end -->
+
 This service computes the Laplace Beltrami Spectrum of 3D surfae meshes using Matlab.
 
 ### Author
